@@ -335,3 +335,218 @@ a:hover{color:#0d3f99}
   line-height: 1.65;
   color: #2d3b56;
 }
+/* ===== Projects collapsible details ===== */
+.project-card {
+  background: var(--card, #fff);
+  border-radius: 16px;
+  padding: clamp(16px, 2vw, 28px);
+  box-shadow: 0 10px 28px rgba(18, 38, 63, 0.08);
+  margin-block: 24px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2.5vw, 32px);
+  align-items: center;
+}
+.project-grid-reverse {
+  grid-template-columns: 1fr 1fr;
+}
+.project-media img {
+  width: 100%;
+  height: clamp(220px, 36vw, 380px);
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.project-title {
+  font-size: clamp(22px, 2.4vw, 32px);
+  margin: 0 0 6px;
+}
+.project-sub {
+  opacity: .75;
+  margin: 0 0 14px;
+}
+
+/* زرار Show details */
+.details-toggle {
+  appearance: none;
+  border: 0;
+  background: var(--pill, #eef4ff);
+  color: var(--ink, #0e1a2b);
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform .15s ease;
+}
+.details-toggle:hover { transform: translateY(-1px); }
+.details-toggle[aria-expanded="true"] .chev { transform: rotate(180deg); }
+
+/* محتوى التفاصيل (انيميشن فتح/غلق ناعم) */
+.details-content {
+  overflow: hidden;
+  transition: grid-template-rows .35s ease, opacity .35s ease, margin .35s ease;
+  display: grid;
+  grid-template-rows: 0fr;   /* مغلق */
+  opacity: 0;
+  margin-top: 0;
+}
+.details-content > * {
+  min-height: 0;  /* مهم عشان الـ grid collapse يشتغل */
+}
+.details-content.open {
+  grid-template-rows: 1fr;   /* مفتوح */
+  opacity: 1;
+  margin-top: 12px;
+}
+
+/* ريسبونسيف */
+@media (max-width: 900px) {
+  .project-grid,
+  .project-grid-reverse {
+    grid-template-columns: 1fr;
+  }
+  .project-media img {
+    height: clamp(220px, 52vw, 420px);
+  }
+}
+/* ===== Show/Hide Details (shared for Projects + Extracurricular) ===== */
+.details-toggle{
+  display:inline-flex; align-items:center; gap:.6rem;
+  padding:.85rem 1.1rem;
+  border:0; border-radius:12px;
+  background:#4461f2; color:#fff;
+  font-weight:700; cursor:pointer;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+  transition:background .2s ease, transform .15s ease;
+}
+.details-toggle:hover{ background:#2f47c2; transform:translateY(-1px); }
+
+.details-toggle .chev{
+  display:inline-block; transition:transform .25s ease;
+}
+.details-toggle[aria-expanded="true"] .chev{ transform:rotate(180deg); }
+
+/* حاوية التفاصيل مع أنيميشن فتح/قفل ناعم */
+.details-content{
+  display:grid; grid-template-rows:0fr;   /* مغلق */
+  overflow:hidden;
+  opacity:0; margin-top:0;
+  transition:grid-template-rows .35s ease, opacity .3s ease, margin .3s ease;
+}
+.details-content > *{ min-height:0; }     /* مهم عشان الـcollapse يشتغل */
+.details-content.open{
+  grid-template-rows:1fr;                  /* مفتوح */
+  opacity:1; margin-top:12px;
+}
+
+/* صندوق تفاصيل بنعومة خفيفة لو عايز خلفية */
+.details-content > *{
+  background:rgba(68,97,242,.06);
+  border-radius:12px; padding:12px 14px;
+  line-height:1.7; color:#203042;
+}
+/* ===== Projects — unified heading & spacing ===== */
+#projects.section{
+  padding-top: clamp(64px, 7vw, 90px);
+  padding-bottom: clamp(56px, 6vw, 80px);
+}
+#projects .section-title{
+  font-weight: 800;
+  font-size: clamp(28px, 4.2vw, 40px);
+  line-height: 1.15;
+  letter-spacing: .2px;
+  margin: 0 0 22px;
+}
+
+/* ===== Projects layout ===== */
+.project-row{
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) 1fr;
+  gap: clamp(18px, 3vw, 36px);
+  align-items: start;
+  background: #f7f9fc;
+  border-radius: 16px;
+  padding: clamp(14px, 2.4vw, 22px);
+  box-shadow: 0 6px 24px rgba(6,18,40,.06);
+  margin-bottom: clamp(18px, 4vw, 28px);
+}
+
+.project-media img{
+  width: 100%;
+  height: clamp(220px, 36vw, 380px);
+  border-radius: 14px;
+  object-fit: cover;              /* الافتراضي */
+}
+
+/* لو الصورة عليها class="fit" تَظهر كاملة من غير قص */
+.project-media img.fit{
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  object-position: center;
+  height: clamp(260px, 38vw, 420px);
+}
+
+.project-title{
+  font-size: clamp(20px, 3.2vw, 28px);
+  font-weight: 800;
+  margin: 2px 0 6px;
+  color: #0f2137;
+}
+.project-meta{
+  margin: 0 0 12px;
+  opacity: .75;
+  font-size: clamp(13px, 1.9vw, 15px);
+}
+
+/* ===== Show / Hide details button ===== */
+.btn-toggle{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #2851f5;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .2s ease;
+  box-shadow: 0 6px 18px rgba(40,81,245,.25);
+  margin-bottom: 10px;
+}
+.btn-toggle:hover{ transform: translateY(-1px); }
+.btn-toggle .btn-dot{
+  width: 6px; height: 6px; border-radius: 50%; background:#fff; display:inline-block;
+}
+
+/* تفاصيل المشروع (مخفي افتراضياً) */
+.project-details{
+  display: none;
+  margin-top: 12px;
+  padding: 14px 16px;
+  background: #eef3ff;
+  border-radius: 12px;
+  color: #0f2137;
+  box-shadow: inset 0 0 0 1px rgba(40,81,245,.08);
+  line-height: 1.65;
+}
+
+/* الحالة المفتوحة */
+.project-details.is-open{ display: block; }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px){
+  .project-row{
+    grid-template-columns: 1fr;
+  }
+  .project-media img.fit{
+    height: clamp(240px, 55vw, 420px);
+  }
+}

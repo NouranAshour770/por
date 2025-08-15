@@ -108,24 +108,65 @@
     </div>
   </section>
 
-  <!-- ===== Projects (نفس ستايل الصور بدون كروت) ===== -->
-  <section id="projects" class="section" data-aos="zoom-in">
-    <div class="container">
-      <h2>Project Highlights</h2>
-      <div class="grid-2">
-        <div>
-          <img src="./images/mamacleo.png" alt="Mama Cleo" class="img contain shadow">
-          <h4 class="mt-8">Mama Cleo</h4>
-          <p>A capstone project focused on maternity clothing branding, built on research-driven positioning and creative identity.</p>
-        </div>
-        <div>
-          <img src="./images/mshhn3ml2.png" alt="مش هنعمل محتوى؟" class="img contain shadow">
-          <h4 class="mt-8">مش هنعمل محتوى؟</h4>
-          <p>Storytelling series sharing real marketing insights & personal branding thoughts across Instagram and LinkedIn.</p>
+<!-- ===================== Projects ===================== -->
+<section id="projects" class="section">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Projects</h2>
+
+    <!-- ===== Project 1 ===== -->
+    <article class="project-row" data-aos="fade-up">
+      <div class="project-media">
+        <!-- ملاحظة: غيّر src لمسار صورة مشروع Mama Cleo عندك -->
+        <img src="./images/mamacleo.png" alt="Mama Cleo project cover" class="fit">
+      </div>
+
+      <div class="project-body">
+        <h3 class="project-title">Mama Cleo</h3>
+        <p class="project-meta">Branding / Positioning</p>
+
+        <button class="btn-toggle js-toggle" data-target="#p1-details">
+          <span class="btn-dot"></span>
+          <span class="btn-text">Show details</span>
+        </button>
+
+        <div id="p1-details" class="project-details">
+          <p>
+            A capstone project focused on maternity clothing branding, built on research-driven
+            positioning and creative identity.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </article>
+
+    <!-- ===== Project 2 ===== -->
+    <article class="project-row" data-aos="fade-up" data-aos-delay="120">
+      <div class="project-media">
+        <!-- ملاحظة: غيّر src لمسار صورة مشروع "مش هنعمل محتوي؟" عندك -->
+        <img src="./images/mshhn3ml2.png" alt="Storytelling series cover" class="fit">
+      </div>
+
+      <div class="project-body">
+        <h3 class="project-title">مش هنعمل محتوي؟</h3>
+        <p class="project-meta">Storytelling / Content Strategy</p>
+
+        <button class="btn-toggle js-toggle" data-target="#p2-details">
+          <span class="btn-dot"></span>
+          <span class="btn-text">Show details</span>
+        </button>
+
+        <div id="p2-details" class="project-details">
+          <p>
+            Storytelling series sharing real marketing insights & personal branding thoughts
+            across Instagram and LinkedIn.
+          </p>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
 
   <!-- ===== Certifications (القديمة + الجديدة 7 صور) ===== -->
   <section id="certifications" class="section" data-aos="fade-up">
@@ -151,8 +192,7 @@
     </div>
   </section>
 
- <!-- ===================== Extracurricular Activities ===================== -->
-<!-- ========= Extracurricular Activities ========= -->
+<!-- ===================== Extracurricular Activities ===================== -->
 <section id="extracurricular" class="section">
   <div class="container">
     <h2 class="section-title" data-aos="fade-up">Extracurricular Activities</h2>
@@ -176,21 +216,23 @@
           <figcaption class="e-cap">Conference – Award</figcaption>
         </figure>
       </div>
-      <!-- Conference details (hidden by default) -->
-<div class="extra-info" data-aos="fade-up">
-  <details>
-    <summary>Show details</summary>
-    <p>
-      I contributed to the success of the 5th International Scientific Conference of the Department of 
-      Geriatric Nursing, Faculty of Nursing, Zagazig University – “Artificial Intelligence &amp; Empowerment: 
-      New Horizons for Elderly Health Care” by developing and executing the strategic marketing plan, 
-      leading promotional campaigns, and ensuring effective outreach to targeted audiences locally and 
-      internationally. I also had the honor of delivering the opening speech, showcasing the conference’s 
-      vision and academic value.
-    </p>
-  </details>
-</div>
 
+      <!-- زرار Show/Hide + محتوى التفاصيل (نفس نمط Projects) -->
+      <button class="details-toggle" data-target="#ex1-details" aria-expanded="false">
+        <span class="chev">▾</span> Show details
+      </button>
+      <div id="ex1-details" class="details-content" hidden>
+        <div>
+          <p>
+            I contributed to the success of the 5th International Scientific Conference of the Department of 
+            Geriatric Nursing, Faculty of Nursing, Zagazig University – “Artificial Intelligence &amp; Empowerment: 
+            New Horizons for Elderly Health Care” by developing and executing the strategic marketing plan, 
+            leading promotional campaigns, and ensuring effective outreach to targeted audiences locally and 
+            internationally. I also had the honor of delivering the opening speech, showcasing the conference’s 
+            vision and academic value.
+          </p>
+        </div>
+      </div>
     </div>
 
     <!-- ========== Activity 2: Seminar ========== -->
@@ -200,29 +242,33 @@
         <h3 class="activity-title">“Management Puzzle: Strategic Mindset of CEOs”</h3>
       </div>
 
-      <!-- صورة/صور السيمنار (هنا صورة واحدة داخل card) -->
+      <!-- صورة السيمنار -->
       <div class="media-grid">
         <figure class="e-card" data-aos="zoom-in">
           <img src="./images/extraact.jpg" alt="Seminar at InterContinental CityStars" class="e-img">
           <figcaption class="e-cap">InterContinental CityStars</figcaption>
         </figure>
       </div>
-      <!-- Seminar details (hidden by default) -->
-<div class="extra-info" data-aos="fade-up">
-  <details>
-    <summary>Show details</summary>
-    <p>
-      I was honored to be part of the “Management Puzzle: Strategic Mindset of CEOs” seminar held at the 
-      InterContinental Cairo CityStars on July 19th. The event brought together over 22 distinguished CEOs 
-      and industry leaders, offering valuable insights on strategic leadership, innovation, and navigating 
-      challenges in today’s business environment.
-    </p>
-  </details>
-</div>
 
+      <!-- زرار Show/Hide + محتوى التفاصيل (نفس نمط Projects) -->
+      <button class="details-toggle" data-target="#ex2-details" aria-expanded="false">
+        <span class="chev">▾</span> Show details
+      </button>
+      <div id="ex2-details" class="details-content" hidden>
+        <div>
+          <p>
+            I was honored to be part of the “Management Puzzle: Strategic Mindset of CEOs” seminar held at the 
+            InterContinental Cairo CityStars on July 19th. The event brought together over 22 distinguished CEOs 
+            and industry leaders, offering valuable insights on strategic leadership, innovation, and navigating 
+            challenges in today’s business environment.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+<!-- =================== /Extracurricular Activities ====================== -->
+
 
 <!-- =================== /Extracurricular Activities ====================== -->
 
