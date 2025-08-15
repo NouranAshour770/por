@@ -1,0 +1,337 @@
+/********  RESET & BASE  *********/
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#0b0f1a;
+  --bg-2:#0f1422;
+  --text:#e8eef7;
+  --muted:#9fb0c9;
+  --brand:#5aa0ff;
+  --accent:#7cf7d4;
+  --shadow:0 10px 30px rgba(0,0,0,.25);
+  --radius:16px;
+}
+body{
+  margin:0;
+  font-family:"Cairo","Inter",system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  color:#233047;
+  line-height:1.7;
+  font-size:18px; /* أكبر و أوضح */
+  background:#f6f8fb;
+}
+h1,h2,h3,h4{color:#0f1b2d; margin:0 0 12px}
+h1{font-size:48px; line-height:1.1; letter-spacing:.5px}
+h2{font-size:34px}
+h3{font-size:24px}
+h4{font-size:20px}
+p{margin:0 0 12px}
+
+/********  NAVBAR  *********/
+.nav{
+  position:sticky; top:0; z-index:999;
+  background:linear-gradient(180deg, #0b0f1a 0%, #0b0f1a 70%, rgba(11,15,26,0.85) 100%);
+  color:var(--text);
+  display:flex; align-items:center; gap:16px;
+  padding:12px 18px;
+}
+.nav .brand{color:white; text-decoration:none; font-weight:800; letter-spacing:.4px}
+.nav .nav-toggle{margin-left:auto; background:none; border:0; color:white; font-size:22px; display:none}
+.nav .nav-menu{margin-left:auto; display:flex; gap:16px; flex-wrap:wrap}
+.nav .nav-menu a{color:#bcd1f1; text-decoration:none; padding:8px 10px; border-radius:10px}
+.nav .nav-menu a:hover{background:rgba(255,255,255,.08); color:white}
+
+@media (max-width:900px){
+  .nav .nav-toggle{display:block}
+  .nav .nav-menu{display:none; flex-direction:column; background:#0b0f1a; width:100%; padding:12px 0; border-top:1px solid rgba(255,255,255,.08)}
+  .nav .nav-menu.show{display:flex}
+}
+
+/********  LAYOUT HELPERS  *********/
+.section{padding:72px 0; scroll-margin-top:76px}
+.container{max-width:1150px; margin:0 auto; padding:0 18px}
+.two-col{display:grid; grid-template-columns:1.2fr .9fr; gap:28px}
+@media (max-width:992px){ .two-col{grid-template-columns:1fr} }
+.mt-8{margin-top:8px} .mt-24{margin-top:24px} .mt-32{margin-top:32px}
+
+/********  HERO  *********/
+.hero{
+  background: radial-gradient(1200px 500px at 50% -10%, #15203a 0%, #0b0f1a 45%, #0b0f1a 100%);
+  color:var(--text); text-align:center;
+}
+.hero h1{color:white}
+.hero .subtitle{color:#cfe0ff; font-weight:600}
+.hero .location{color:#a9bfe6}
+.hero .btn{
+  display:inline-flex; align-items:center; gap:8px;
+  margin-top:18px; background:white; color:#0b0f1a;
+  border-radius:14px; padding:12px 18px; text-decoration:none; font-weight:700;
+  box-shadow:var(--shadow);
+}
+.hero .btn:hover{transform:translateY(-2px)}
+.hero .socials{margin-top:18px; display:flex; gap:12px; justify-content:center}
+.hero .socials a{color:#d8e5ff; font-size:20px}
+.hero .socials a:hover{color:white}
+
+/********  GRIDS & IMAGES  *********/
+.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+@media (max-width:900px){ .grid-2{grid-template-columns:1fr} }
+
+.gallery{display:grid; gap:16px; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr))}
+.img{
+  width:100%;
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  background:#fff;
+}
+.img.contain{object-fit:contain; height:100%; max-height:380px}
+.img.cover{object-fit:cover; height:360px}
+
+/********  SKILLS  *********/
+.skills{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+@media (max-width:900px){ .skills{grid-template-columns:1fr} }
+.skills h3{display:flex; align-items:center; gap:10px}
+
+/********  ABOUT INFO GRID  *********/
+.info-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;
+}
+.info-grid div{
+  display:flex; align-items:center; gap:10px;
+  padding:10px 12px; border-radius:12px; background:#eef3fb; color:#21314a
+}
+.info-grid i{color:#537fd8}
+@media (max-width:900px){ .info-grid{grid-template-columns:1fr} }
+
+/********  EXTRACURRICULAR  *********/
+.activity{
+  display:grid; grid-template-columns:1.2fr 1fr; gap:18px; align-items:center;
+  margin-top:14px;
+}
+.activity .images{display:grid; gap:12px}
+.activity .desc{background:#f3f7ff; border:1px solid #e3ecff; padding:16px; border-radius:14px}
+.badge{
+  display:inline-block; font-size:12px; letter-spacing:.5px;
+  background:#e9f3ff; color:#1452b1; padding:4px 8px; border-radius:999px; margin-bottom:6px
+}
+@media (max-width:992px){ .activity{grid-template-columns:1fr} }
+
+/********  CONTACT  *********/
+.contact{
+  background:linear-gradient(180deg, #0b0f1a, #0f1422);
+  color:white;
+}
+.contact .contact-list{display:grid; gap:12px; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr))}
+.contact a{color:white; text-decoration:none}
+.contact i{width:22px}
+/* Highlight Contact heading */
+#contact h2 {
+  color: #ffffff; /* أبيض */
+  font-weight: 700;
+  font-size: 28px;
+}
+
+#contact h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin-top: 6px;
+  background: linear-gradient(90deg, #00aaff, #0088ff); /* خط تزييني تحت الكلمة */
+  border-radius: 2px;
+}
+
+/********  FOOTER  *********/
+.footer{padding:18px 0; text-align:center; color:#7f93b6; background:#0b0f1a}
+
+/* تحسين ظهور الروابط */
+a{color:#205cc7}
+a:hover{color:#0d3f99}
+/* ==== Extracurricular separation upgrade (non-breaking) ==== */
+#extracurricular {
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.activity {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;     /* صورة كبيرة + نص واضح */
+  gap: clamp(18px, 2.5vw, 28px);
+  align-items: start;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 18px;
+  padding: clamp(14px, 2vw, 22px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.activity + .activity {                 /* احتياطي لو اتشال الفاصل */
+  margin-top: clamp(22px, 3vw, 36px);
+}
+
+.activity-media {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.activity-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.activity-media img.alt-shot {
+  max-height: 360px;                    /* الصورة التانية أصغر شوي */
+  object-position: center;
+}
+
+.activity-info .pill {
+  display: inline-block;
+  font-size: 12.5px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eef6ff;
+  color: #2b6cb0;
+  font-weight: 600;
+  letter-spacing: .2px;
+  margin-bottom: 8px;
+}
+
+.activity-info .pill-blue {
+  background: #e9f2ff;
+  color: #2459a8;
+}
+
+.activity-title {
+  font-size: clamp(18px, 2.2vw, 22px);
+  line-height: 1.35;
+  margin: 6px 0 10px;
+  font-weight: 800;
+}
+
+.activity-text {
+  font-size: clamp(14px, 1.6vw, 15.5px);
+  line-height: 1.65;
+  color: rgba(0,0,0,0.78);
+  margin: 0;
+}
+
+/* فاصل واضح وشيك بين النشاطين */
+.activity-divider{
+  height: 42px;                         /* مسافة رأسية كبيرة */
+  margin: clamp(18px, 3vw, 30px) 0;
+  position: relative;
+}
+
+.activity-divider::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:50%;
+  height: 1px;
+  transform: translateY(-50%);
+  background:
+    radial-gradient(closest-side, rgba(0,0,0,.14), transparent) left center/40% 1px no-repeat,
+    radial-gradient(closest-side, rgba(0,0,0,.14), transparent) right center/40% 1px no-repeat,
+    linear-gradient(90deg, transparent 0%, rgba(0,0,0,.12) 50%, transparent 100%);
+}
+
+/* استجابة للموبايل */
+@media (max-width: 900px){
+  .activity{
+    grid-template-columns: 1fr; /* كولمن واحد على الشاشات الصغيرة */
+    padding: 14px;
+  }
+  .activity-media img.alt-shot{
+    max-height: none;
+  }
+}
+/* ===== Extracurricular tidy cards ===== */
+.activity { margin-top: 28px; }
+.activity + .activity { margin-top: 44px; } /* فصل واضح بين الفعاليتين */
+
+.activity-head {
+  display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.activity-title {
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 700; letter-spacing: .2px;
+}
+
+.badge{
+  font-size: 12px; font-weight: 700;
+  padding: 6px 10px; border-radius: 14px;
+  background: #efeefe; color:#5b5bff; border:1px solid #e1e1ff;
+}
+.badge-blue{ background:#eaf4ff; color:#0077cc; border-color:#cfe8ff; }
+
+.media-grid{
+  display:grid; gap:14px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.e-card{
+  background:#fff; border-radius:16px; padding:10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+  border:1px solid rgba(0,0,0,.06);
+}
+.e-img{
+  width:100%; height:260px; object-fit:cover;
+  border-radius:12px; display:block;
+}
+.e-cap{
+  font-size:12px; color:#6b7280; text-align:center; margin-top:8px;
+}
+
+/* موبايل: خفض الطول لحجم أصغر */
+@media (max-width: 480px){
+  .e-img{ height:210px; }
+}
+/* ----- Collapsible details in Extracurricular ----- */
+.extra-info {
+  margin: 10px 0 0;
+}
+
+.extra-info details {
+  border-radius: 14px;
+  background: #f6f9ff;
+  padding: 12px 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  transition: box-shadow .2s ease, background .2s ease;
+}
+
+.extra-info details:hover {
+  box-shadow: 0 10px 32px rgba(0,0,0,0.08);
+  background: #f3f7ff;
+}
+
+.extra-info summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  color: #1a2740;
+  list-style: none;              /* يزيل السهم الافتراضي */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.extra-info summary::before {
+  content: "➤";
+  display: inline-block;
+  transform: rotate(90deg);
+  transition: transform .2s ease;
+  opacity: .75;
+}
+
+.extra-info details[open] summary::before {
+  transform: rotate(0deg);
+}
+
+.extra-info p {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #2d3b56;
+}
