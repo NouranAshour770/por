@@ -164,7 +164,7 @@ I bring both strategic vision and creative execution to every project.`,
     hero_name: "نوران عاشور",
     hero_sub: "أخصائية تسويق | حاصلة على ماجستير إدارة أعمال (AAST) | دبلومة التسويق الرقمي (AUC) | صانعة محتوى | مُعيدة (ERU)",
     hero_loc: "القاهرة، مصر",
-    hero_cta: "شوفي أعمالي",
+    hero_cta: "شوف أعمالي",
 
     // About
     about_title: "نبذة عنّي",
