@@ -5,47 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nouran Ashour | Portfolio</title>
 
-  <!-- Fonts: Arabic + English (واضح وكبير) -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome (Icons) -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <!-- AOS Animations -->
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="./styles.css?v=9">
+  <link rel="stylesheet" href="./styles.css?v=10">
 </head>
 <body>
 
-  <!-- ===== Navbar بسيط وثابت ===== -->
+  <!-- ===== Navbar ===== -->
   <header class="nav">
-    <a href="#home" class="brand">Nouran Ashour</a>
+    <a href="#home" class="brand" data-i18n="brand">Nouran Ashour</a>
+
+    <!-- زر اللغة -->
+    <button id="langToggle" class="btn-lang" aria-pressed="false">العربية</button>
+
     <button class="nav-toggle" aria-label="menu"><i class="fa-solid fa-bars"></i></button>
     <nav class="nav-menu">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#extracurricular">Extracurricular</a>
-      <a href="#writing">Writing</a>
-      <a href="#visuals">Visual Creations</a>
-      <a href="#students">Student Projects</a>
-      <a href="#inspiring">Inspiring Gen</a>
-      <a href="#contact">Contact</a>
+      <a href="#home" data-i18n="nav_home">Home</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#skills" data-i18n="nav_skills">Skills</a>
+      <a href="#projects" data-i18n="nav_projects">Projects</a>
+      <a href="#certifications" data-i18n="nav_certs">Certifications</a>
+      <a href="#extracurricular" data-i18n="nav_extra">Extracurricular</a>
+      <a href="#writing" data-i18n="nav_writing">Writing</a>
+      <a href="#visuals" data-i18n="nav_visuals">Visual Creations</a>
+      <a href="#students" data-i18n="nav_students">Student Projects</a>
+      <a href="#inspiring" data-i18n="nav_inspiring">Inspiring Gen</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
     </nav>
   </header>
 
   <!-- ===== Hero / Home ===== -->
   <section id="home" class="hero section" data-aos="fade-up">
-    <h1>Nouran Ashour</h1>
-<p class="subtitle">Marketing Specialist | MBA Holder (AAST) | Digital Marketing Diploma Holder (AUC) | Content Creator | Teaching Assistant (ERU)</p>
-    <p class="location"><i class="fa-solid fa-location-dot"></i> Cairo, Egypt</p>
+    <h1 data-i18n="hero_name">Nouran Ashour</h1>
+
+    <p class="subtitle" data-i18n="hero_sub">
+      Marketing Specialist | MBA Holder (AAST) | Digital Marketing Diploma Holder (AUC) | Content Creator | Teaching Assistant (ERU)
+    </p>
+
+    <p class="location">
+      <i class="fa-solid fa-location-dot"></i> <span data-i18n="hero_loc">Cairo, Egypt</span>
+    </p>
+
     <div class="cta">
-      <a href="#projects" class="btn">See My Work <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="#projects" class="btn" data-i18n="hero_cta">
+        See My Work <i class="fa-solid fa-arrow-right"></i>
+      </a>
     </div>
+
     <div class="socials">
       <a href="https://www.instagram.com/nouran.ashourrr" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
       <a href="https://www.linkedin.com/in/nouran-ashour-mba-958a65215" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
@@ -58,15 +72,14 @@
   <section id="about" class="section" data-aos="fade-up">
     <div class="container two-col">
       <div>
-        <h2>About Me</h2>
-        <p>
+        <h2 data-i18n="about_title">About Me</h2>
+        <p data-i18n="about_p">
           I’m a Marketing Specialist with a strong background in digital strategy, campaign management, and content creation.
-          With an MBA and hands‑on experience in branding, influencer marketing, and product launch strategies,
+          With an MBA and hands-on experience in branding, influencer marketing, and product launch strategies,
           I bring both strategic vision and creative execution to every project.
         </p>
       </div>
       <div>
-        <!-- استخدمي صورتك اللي عندك (غيّري المسار لو مختلف) -->
         <img src="./images/Nouran.jpg" alt="Nouran Ashour" class="img contain shadow">
       </div>
     </div>
@@ -75,106 +88,101 @@
   <!-- ===== Skills ===== -->
   <section id="skills" class="section" data-aos="fade-up">
     <div class="container">
-      <h2>My Skills</h2>
+      <h2 data-i18n="skills_title">My Skills</h2>
       <div class="skills">
         <div>
-          <h3><i class="fa-solid fa-bullhorn"></i> Marketing</h3>
+          <h3><i class="fa-solid fa-bullhorn"></i> <span data-i18n="skills_mkt">Marketing</span></h3>
           <ul>
-            <li>Digital Strategy — Advanced</li>
-            <li>Content Marketing — Advanced</li>
-            <li>Influencer Marketing — Advanced</li>
-            <li>Branding & Campaigns — Advanced</li>
+            <li data-i18n="skills_mkt_1">Digital Strategy — Advanced</li>
+            <li data-i18n="skills_mkt_2">Content Marketing — Advanced</li>
+            <li data-i18n="skills_mkt_3">Influencer Marketing — Advanced</li>
+            <li data-i18n="skills_mkt_4">Branding & Campaigns — Advanced</li>
           </ul>
         </div>
         <div>
-          <h3><i class="fa-solid fa-chart-line"></i> Analytics</h3>
+          <h3><i class="fa-solid fa-chart-line"></i> <span data-i18n="skills_ana">Analytics</span></h3>
           <ul>
-            <li>KPI Tracking & ROI</li>
-            <li>A/B Testing</li>
-            <li>SEO Basics</li>
-            <li>Paid Ads Coordination</li>
+            <li data-i18n="skills_ana_1">KPI Tracking & ROI</li>
+            <li data-i18n="skills_ana_2">A/B Testing</li>
+            <li data-i18n="skills_ana_3">SEO Basics</li>
+            <li data-i18n="skills_ana_4">Paid Ads Coordination</li>
           </ul>
         </div>
         <div>
-          <h3><i class="fa-solid fa-lightbulb"></i> Creative</h3>
+          <h3><i class="fa-solid fa-lightbulb"></i> <span data-i18n="skills_cre">Creative</span></h3>
           <ul>
-            <li>Storytelling</li>
-            <li>Short‑form Video Ideas</li>
-            <li>Visual Direction</li>
-            <li>Social Media Playbooks</li>
+            <li data-i18n="skills_cre_1">Storytelling</li>
+            <li data-i18n="skills_cre_2">Short-form Video Ideas</li>
+            <li data-i18n="skills_cre_3">Visual Direction</li>
+            <li data-i18n="skills_cre_4">Social Media Playbooks</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-<!-- ===================== Projects ===================== -->
-<section id="projects" class="section">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">Projects</h2>
+  <!-- ===== Projects ===== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="projects_title">Projects</h2>
 
-    <!-- ===== Project 1 ===== -->
-    <article class="project-row" data-aos="fade-up">
-      <div class="project-media">
-        <!-- ملاحظة: غيّر src لمسار صورة مشروع Mama Cleo عندك -->
-        <img src="./images/mamacleo.png" alt="Mama Cleo project cover" class="fit">
-      </div>
-
-      <div class="project-body">
-        <h3 class="project-title">Mama Cleo</h3>
-        <p class="project-meta">Branding / Positioning</p>
-
-        <button class="btn-toggle js-toggle" data-target="#p1-details">
-          <span class="btn-dot"></span>
-          <span class="btn-text">Show details</span>
-        </button>
-
-        <div id="p1-details" class="project-details">
-          <p>
-            A capstone project focused on maternity clothing branding, built on research-driven
-            positioning and creative identity.
-          </p>
+      <!-- Project 1 -->
+      <article class="project-row" data-aos="fade-up">
+        <div class="project-media">
+          <img src="./images/mamacleo.png" alt="Mama Cleo project cover" class="fit">
         </div>
-      </div>
-    </article>
 
-    <!-- ===== Project 2 ===== -->
-    <article class="project-row" data-aos="fade-up" data-aos-delay="120">
-      <div class="project-media">
-        <!-- ملاحظة: غيّر src لمسار صورة مشروع "مش هنعمل محتوي؟" عندك -->
-        <img src="./images/mshhn3ml2.png" alt="Storytelling series cover" class="fit">
-      </div>
+        <div class="project-body">
+          <h3 class="project-title" data-i18n="p1_title">Mama Cleo</h3>
+          <p class="project-meta" data-i18n="p1_meta">Branding / Positioning</p>
 
-      <div class="project-body">
-        <h3 class="project-title">مش هنعمل محتوي؟</h3>
-        <p class="project-meta">Storytelling / Content Strategy</p>
+          <button class="btn-toggle js-toggle" data-target="#p1-details">
+            <span class="btn-dot"></span>
+            <span class="btn-text" data-i18n="btn_show">Show details</span>
+          </button>
 
-        <button class="btn-toggle js-toggle" data-target="#p2-details">
-          <span class="btn-dot"></span>
-          <span class="btn-text">Show details</span>
-        </button>
-
-        <div id="p2-details" class="project-details">
-          <p>
-            Storytelling series sharing real marketing insights & personal branding thoughts
-            across Instagram and LinkedIn.
-          </p>
+          <div id="p1-details" class="project-details">
+            <p data-i18n="p1_desc">
+              A capstone project focused on maternity clothing branding, built on research-driven
+              positioning and creative identity.
+            </p>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-  </div>
-</section>
+      <!-- Project 2 -->
+      <article class="project-row" data-aos="fade-up" data-aos-delay="120">
+        <div class="project-media">
+          <img src="./images/mshhn3ml2.png" alt="Storytelling series cover" class="fit">
+        </div>
 
+        <div class="project-body">
+          <h3 class="project-title" data-i18n="p2_title">Mesh Hn3ml Mo7twa?</h3>
+          <p class="project-meta" data-i18n="p2_meta">Storytelling / Content Strategy</p>
 
+          <button class="btn-toggle js-toggle" data-target="#p2-details">
+            <span class="btn-dot"></span>
+            <span class="btn-text" data-i18n="btn_show">Show details</span>
+          </button>
 
-  <!-- ===== Certifications (القديمة + الجديدة 7 صور) ===== -->
+          <div id="p2-details" class="project-details">
+            <p data-i18n="p2_desc">
+              Storytelling series sharing real marketing insights & personal branding thoughts
+              across Instagram and LinkedIn.
+            </p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== Certifications ===== -->
   <section id="certifications" class="section" data-aos="fade-up">
     <div class="container">
-      <h2>Certifications</h2>
+      <h2 data-i18n="certs_title">Certifications</h2>
 
-      <!-- المجموعة الجديدة (7) -->
-      <h3 class="sub">Recent Certificates</h3>
+      <h3 class="sub" data-i18n="certs_recent">Recent Certificates</h3>
       <div class="gallery">
         <img src="./images/sm.jpg" alt="Social Media Simternship Classic" class="img contain">
         <img src="./images/sm2_hubspot.jpg" alt="Social Media Marketing II - HubSpot" class="img contain">
@@ -182,8 +190,7 @@
         <img src="./images/content_marketing.jpg" alt="Content Marketing - HubSpot" class="img contain">
         <img src="./images/eru_moodle.jpg" alt="ERU Moodle training" class="img contain">
         <img src="./images/dev_udemy.jpg" alt="Udemy Time Management" class="img contain">
-        <!-- للصورة رقم 7 (نفس الصورة مع عنوان مختلف لو مش متوفرة صورة سابعة منفصلة) -->
-         <img src="./images/great.jpg" alt="Great Learning - Digital Marketing Framework" class="img contain">
+        <img src="./images/great.jpg" alt="Great Learning - Digital Marketing Framework" class="img contain">
         <img src="./images/hp.jpg" alt="HP Life - Social Media Marketing" class="img contain">
         <img src="./images/property.jpg" alt="Intellectual Property Certificate" class="img contain">
         <img src="./images/dm_cert.png" alt="Stukent Digital Marketing Simternship" class="img contain">
@@ -192,110 +199,103 @@
     </div>
   </section>
 
-<!-- ===================== Extracurricular Activities ===================== -->
-<section id="extracurricular" class="section">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">Extracurricular Activities</h2>
+  <!-- ===== Extracurricular ===== -->
+  <section id="extracurricular" class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="extra_title">Extracurricular Activities</h2>
 
-    <!-- ========== Activity 1: Conference ========== -->
-    <div class="activity" data-aos="fade-up">
-      <div class="activity-head">
-        <span class="badge">Conference</span>
-        <h3 class="activity-title">Zagazig University – Geriatric Nursing</h3>
-      </div>
+      <!-- Activity 1 -->
+      <div class="activity" data-aos="fade-up">
+        <div class="activity-head">
+          <span class="badge" data-i18n="extra_badge_conf">Conference</span>
+          <h3 class="activity-title" data-i18n="ex1_title">Zagazig University – Geriatric Nursing</h3>
+        </div>
 
-      <!-- صور المؤتمر الأول (صورتين) -->
-      <div class="media-grid">
-        <figure class="e-card" data-aos="zoom-in">
-          <img src="./images/mo2tmar3.jpg" alt="Conference photo" class="e-img">
-          <figcaption class="e-cap">Conference – Photo 1</figcaption>
-        </figure>
+        <div class="media-grid">
+          <figure class="e-card" data-aos="zoom-in">
+            <img src="./images/mo2tmar3.jpg" alt="Conference photo" class="e-img">
+            <figcaption class="e-cap" data-i18n="ex1_cap1">Conference – Photo 1</figcaption>
+          </figure>
 
-        <figure class="e-card" data-aos="zoom-in" data-aos-delay="100">
-          <img src="./images/mo2tmar1.jpg" alt="Award plaque" class="e-img">
-          <figcaption class="e-cap">Conference – Award</figcaption>
-        </figure>
-      </div>
+          <figure class="e-card" data-aos="zoom-in" data-aos-delay="100">
+            <img src="./images/mo2tmar1.jpg" alt="Award plaque" class="e-img">
+            <figcaption class="e-cap" data-i18n="ex1_cap2">Conference – Award</figcaption>
+          </figure>
+        </div>
 
-      <!-- زرار Show/Hide + محتوى التفاصيل (نفس نمط Projects) -->
-      <button class="details-toggle" data-target="#ex1-details" aria-expanded="false">
-        <span class="chev">▾</span> Show details
-      </button>
-      <div id="ex1-details" class="details-content" hidden>
-        <div>
-          <p>
-            I contributed to the success of the 5th International Scientific Conference of the Department of 
-            Geriatric Nursing, Faculty of Nursing, Zagazig University – “Artificial Intelligence &amp; Empowerment: 
-            New Horizons for Elderly Health Care” by developing and executing the strategic marketing plan, 
-            leading promotional campaigns, and ensuring effective outreach to targeted audiences locally and 
-            internationally. I also had the honor of delivering the opening speech, showcasing the conference’s 
-            vision and academic value.
-          </p>
+        <button class="details-toggle" data-target="#ex1-details" aria-expanded="false">
+          <span class="chev">▾</span> <span data-i18n="btn_show">Show details</span>
+        </button>
+
+        <div id="ex1-details" class="details-content" hidden>
+          <div>
+            <p data-i18n="ex1_desc">
+              I contributed to the success of the 5th International Scientific Conference of the Department of 
+              Geriatric Nursing, Faculty of Nursing, Zagazig University – “Artificial Intelligence &amp; Empowerment: 
+              New Horizons for Elderly Health Care” by developing and executing the strategic marketing plan, 
+              leading promotional campaigns, and ensuring effective outreach to targeted audiences locally and 
+              internationally. I also had the honor of delivering the opening speech, showcasing the conference’s 
+              vision and academic value.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- ========== Activity 2: Seminar ========== -->
-    <div class="activity" data-aos="fade-up" data-aos-delay="150">
-      <div class="activity-head">
-        <span class="badge badge-blue">Seminar</span>
-        <h3 class="activity-title">“Management Puzzle: Strategic Mindset of CEOs”</h3>
-      </div>
+      <!-- Activity 2 -->
+      <div class="activity" data-aos="fade-up" data-aos-delay="150">
+        <div class="activity-head">
+          <span class="badge badge-blue" data-i18n="extra_badge_sem">Seminar</span>
+          <h3 class="activity-title" data-i18n="ex2_title">“Management Puzzle: Strategic Mindset of CEOs”</h3>
+        </div>
 
-      <!-- صورة السيمنار -->
-      <div class="media-grid">
-        <figure class="e-card" data-aos="zoom-in">
-          <img src="./images/extraact.jpg" alt="Seminar at InterContinental CityStars" class="e-img">
-          <figcaption class="e-cap">InterContinental CityStars</figcaption>
-        </figure>
-      </div>
+        <div class="media-grid">
+          <figure class="e-card" data-aos="zoom-in">
+            <img src="./images/extraact.jpg" alt="Seminar at InterContinental CityStars" class="e-img">
+            <figcaption class="e-cap" data-i18n="ex2_cap">InterContinental CityStars</figcaption>
+          </figure>
+        </div>
 
-      <!-- زرار Show/Hide + محتوى التفاصيل (نفس نمط Projects) -->
-      <button class="details-toggle" data-target="#ex2-details" aria-expanded="false">
-        <span class="chev">▾</span> Show details
-      </button>
-      <div id="ex2-details" class="details-content" hidden>
-        <div>
-          <p>
-            I was honored to be part of the “Management Puzzle: Strategic Mindset of CEOs” seminar held at the 
-            InterContinental Cairo CityStars on July 19th. The event brought together over 22 distinguished CEOs 
-            and industry leaders, offering valuable insights on strategic leadership, innovation, and navigating 
-            challenges in today’s business environment.
-          </p>
+        <button class="details-toggle" data-target="#ex2-details" aria-expanded="false">
+          <span class="chev">▾</span> <span data-i18n="btn_show">Show details</span>
+        </button>
+        <div id="ex2-details" class="details-content" hidden>
+          <div>
+            <p data-i18n="ex2_desc">
+              I was honored to be part of the “Management Puzzle: Strategic Mindset of CEOs” seminar held at the 
+              InterContinental Cairo CityStars on July 19th. The event brought together over 22 distinguished CEOs 
+              and industry leaders, offering valuable insights on strategic leadership, innovation, and navigating 
+              challenges in today’s business environment.
+            </p>
+          </div>
         </div>
       </div>
+
     </div>
-  </div>
-</section>
-<!-- =================== /Extracurricular Activities ====================== -->
+  </section>
 
-
-<!-- =================== /Extracurricular Activities ====================== -->
-
-
-  <!-- ===== Writing (الكتب) ===== -->
+  <!-- ===== Writing ===== -->
   <section id="writing" class="section" data-aos="fade-up">
     <div class="container">
-      <h2>Writing</h2>
+      <h2 data-i18n="writing_title">Writing</h2>
       <div class="grid-2">
         <div>
-          <img src="./images/book1.jpg" alt="رسائل وأساطير" class="img contain">
-          <h4 class="mt-8">رسائل وأساطير</h4>
-          <p>Published novel with Al-Moltaqa Publishing & Distribution.</p>
+          <img src="./images/book1.jpg" alt=" رسائل وأساطير " class="img contain">
+          <h4 class="mt-8" data-i18n="w1_title">Rasael & Asateer</h4>
+          <p data-i18n="w1_desc">Published novel with Al-Moltaqa Publishing & Distribution.</p>
         </div>
         <div>
-          <img src="./images/book2.jpg" alt="نغم الروح" class="img contain">
-          <h4 class="mt-8">نغم الروح</h4>
-          <p>Novel — under publication.</p>
+          <img src="./images/book2.jpg" alt=" نغم الروح " class="img contain">
+          <h4 class="mt-8" data-i18n="w2_title">Nagham El-Rouh</h4>
+          <p data-i18n="w2_desc">Novel — under publication.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Visual Creations (14 صورة) ===== -->
+  <!-- ===== Visual Creations ===== -->
   <section id="visuals" class="section" data-aos="fade-up">
     <div class="container">
-      <h2>Visual Creations</h2>
+      <h2 data-i18n="visuals_title">Visual Creations</h2>
       <div class="gallery">
         <img src="./images/v1.jpg" class="img contain" alt="v1">
         <img src="./images/v2.jpg" class="img contain" alt="v2">
@@ -318,7 +318,7 @@
   <!-- ===== Student Projects ===== -->
   <section id="students" class="section" data-aos="fade-up">
     <div class="container">
-      <h2>Student Projects Under My Supervision</h2>
+      <h2 data-i18n="students_title">Student Projects Under My Supervision</h2>
       <div class="gallery">
         <img src="./images/p1.jpg" alt="Project 1" class="img contain">
         <img src="./images/p2.jpg" alt="Project 2" class="img contain">
@@ -337,7 +337,7 @@
   <!-- ===== Inspiring the Next Generation ===== -->
   <section id="inspiring" class="section" data-aos="fade-up">
     <div class="container">
-      <h2>Inspiring the Next Generation of Marketers</h2>
+      <h2 data-i18n="inspire_title">Inspiring the Next Generation of Marketers</h2>
       <div class="gallery">
         <img src="./images/stu1.jpg" class="img contain" alt="Students 1">
         <img src="./images/stu2.jpg" class="img contain" alt="Students 2">
@@ -353,10 +353,10 @@
     </div>
   </section>
 
-  <!-- ===== Contact (خلفية داكنة ونص أبيض) ===== -->
+  <!-- ===== Contact ===== -->
   <section id="contact" class="section contact" data-aos="fade-up">
     <div class="container">
-      <h2>Contact</h2>
+      <h2 data-i18n="contact_title">Contact</h2>
       <div class="contact-list">
         <div><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/nouran.ashourrr" target="_blank">nouran.ashourrr</a></div>
         <div><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/nouran-ashour-mba-958a65215" target="_blank">Nouran Ashour</a></div>
@@ -367,11 +367,11 @@
   </section>
 
   <footer class="footer">
-    <div class="container">© <span id="y"></span> Nouran Ashour</div>
+    <div class="container">© <span id="y"></span> <span data-i18n="brand">Nouran Ashour</span></div>
   </footer>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="./script.js?v=9"></script>
+  <script src="./script.js?v=10"></script>
 </body>
 </html>
