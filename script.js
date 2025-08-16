@@ -62,12 +62,32 @@ document.querySelectorAll('.js-toggle').forEach(btn => {
 
 
 // =====================================================
+// ===== Optional: simple toggle (ID-based) support =====
+// ===== for Competitions (detailsBtn/competitions-...)==
+// =====================================================
+(function wireSimpleCompetitionsToggle(){
+  const btn = document.getElementById('detailsBtn');
+  const box = document.getElementById('competitions-gallery');
+  if (!btn || !box) return;
+
+  btn.addEventListener('click', () => {
+    const isHidden = box.style.display === 'none' || getComputedStyle(box).display === 'none';
+    box.style.display = isHidden ? 'block' : 'none';
+
+    const isAr = document.documentElement.lang === 'ar';
+    btn.textContent = isHidden
+      ? (isAr ? 'إخفاء التفاصيل' : 'Hide details')
+      : (isAr ? 'عرض التفاصيل' : 'Show details');
+  });
+})();
+
+
+// =====================================================
 // ===================== i18n Toggle ====================
 // =====================================================
-// ملاحظات مهمة:
-// - لن نلمس أي <img> ولا الـ CSS.
-// - الترجمات تطبق فقط على العناصر اللي عليها data-i18n.
-// - لو مفتاح ناقص في القاموس، العنصر يفضل زي ما هو.
+// ملاحظات:
+// - الترجمات تطبّق بس على العناصر اللي عليها data-i18n.
+// - لو مفتاح ناقص، النص يفضل زي ما هو.
 const dict = {
   en: {
     brand: "Nouran Ashour",
@@ -75,6 +95,7 @@ const dict = {
     nav_home: "Home", nav_about: "About", nav_skills: "Skills", nav_projects: "Projects",
     nav_certs: "Certifications", nav_extra: "Extracurricular", nav_writing: "Writing",
     nav_visuals: "Visual Creations", nav_students: "Student Projects", nav_inspiring: "Inspiring Gen",
+    nav_competitions: "Competitions",
     nav_contact: "Contact",
 
     // Hero
@@ -148,6 +169,11 @@ I bring both strategic vision and creative execution to every project.`,
     students_title: "Student Projects Under My Supervision",
     inspire_title: "Inspiring the Next Generation of Marketers",
 
+    // Competitions (new)
+    competitions_title: "Competitions",
+    competitions_desc:
+      "Proud to have led my team to victory at the Young Leaders Marathon, winning first place at the national level across all Egyptian universities. Organized by the John D. Gerhart Center for Philanthropy, Civic Engagement, and Responsible Business at The American University in Cairo, and sponsored by Americana. This achievement, with a prize of 21,000 EGP, reflects our teamwork, leadership, and dedication to making a positive impact in our community.",
+
     // Contact
     contact_title: "Contact",
   },
@@ -158,6 +184,7 @@ I bring both strategic vision and creative execution to every project.`,
     nav_home: "الرئيسية", nav_about: "نبذة", nav_skills: "المهارات", nav_projects: "المشاريع",
     nav_certs: "الشهادات", nav_extra: "الأنشطة الإضافية", nav_writing: "الكتابة",
     nav_visuals: "إبداعات بصرية", nav_students: "مشاريع الطلاب", nav_inspiring: "إلهام الجيل القادم",
+    nav_competitions: "المسابقات",
     nav_contact: "تواصل",
 
     // Hero
@@ -231,6 +258,11 @@ I bring both strategic vision and creative execution to every project.`,
     students_title: "مشاريع الطلاب تحت إشرافي",
     inspire_title: "إلهام الجيل القادم من المسوّقين",
 
+    // Competitions (new)
+    competitions_title: "المسابقات",
+    competitions_desc:
+      "فخور بقيادة فريقي للفوز في ماراثون القادة الشباب، والحصول على المركز الأول على مستوى الجمهورية بين جميع الجامعات المصرية. نظمه مركز جون د. جيرهارت للعمل الخيري والمشاركة المدنية والمسؤولية المجتمعية بالجامعة الأمريكية بالقاهرة، وبرعاية أمريكانا. هذا الإنجاز، بجائزة قدرها 21,000 جنيه مصري، يعكس روح الفريق والقيادة والالتزام بإحداث أثر إيجابي في مجتمعنا.",
+
     // Contact
     contact_title: "تواصل",
   }
@@ -248,7 +280,7 @@ function applyLanguage(lang){
   document.documentElement.setAttribute('lang', lang === 'ar' ? 'ar' : 'en');
   document.documentElement.setAttribute('dir',  lang === 'ar' ? 'rtl' : 'ltr');
 
-  // النص في كل عنصر عليه data-i18n (من غير ما نمس الصور)
+  // النص في كل عنصر عليه data-i18n
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (key && map[key] != null) el.textContent = map[key];
@@ -280,10 +312,18 @@ function applyLanguage(lang){
     span.textContent = open ? getHideLabel() : getShowLabel();
   });
 
+  // Optional IDs (competitions gallery)
+  const dBtn = document.getElementById('detailsBtn');
+  const dBox = document.getElementById('competitions-gallery');
+  if (dBtn && dBox) {
+    const visible = getComputedStyle(dBox).display !== 'none';
+    dBtn.textContent = visible ? getHideLabel() : getShowLabel();
+  }
+
   localStorage.setItem('lang', lang);
 }
 
-// زر التبديل
+// زر التبديل (لو موجود)
 document.getElementById('langToggle')?.addEventListener('click', ()=>{
   const current = document.documentElement.lang === 'ar' ? 'ar' : 'en';
   applyLanguage(current === 'en' ? 'ar' : 'en');

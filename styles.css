@@ -304,3 +304,14 @@ html[dir="rtl"] .hero .btn i{ transform: scaleX(-1); }  /* سهم الزر يت�
 /* توسيط الزر والسوشيال */
 .hero .cta{ display:flex; justify-content:center; }
 .hero .socials{ justify-content:center; }
+/* ===== Competitions gallery (no crop) ===== */
+.gallery-competitions{
+  display:grid;
+  gap:16px;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+}
+.img.fullcontain{
+  object-fit:contain;
+  height:auto;           /* بدون قصّ */
+  background:#fff;
+}
