@@ -71,10 +71,14 @@ p{margin:0 0 12px}
 .hero{
   background:radial-gradient(1200px 500px at 50% -10%,#15203a 0%,#0b0f1a 45%,#0b0f1a 100%);
   color:var(--text);text-align:center;
+
+  /* التوسيط في العربي والإنجليزي */
+  display:flex;flex-direction:column;align-items:center;
 }
-.hero h1{color:#fff}
-.hero .subtitle{color:#cfe0ff;font-weight:600}
-.hero .location{color:#a9bfe6}
+.hero h1{color:#fff;text-align:center;margin-inline:auto}
+.hero .subtitle{color:#cfe0ff;font-weight:600;text-align:center;margin-inline:auto}
+.hero .location{color:#a9bfe6;text-align:center;margin-inline:auto}
+.hero .cta{display:flex;justify-content:center}
 .hero .btn{
   display:inline-flex;align-items:center;gap:8px;
   margin-top:18px;background:#fff;color:#0b0f1a;
@@ -97,7 +101,7 @@ p{margin:0 0 12px}
   box-shadow:var(--shadow);
   background:#fff;
 }
-.img.contain{object-fit:contain;height:100%;max-height:380px}
+.img.contain{object-fit:contain;height:auto;max-height:100%}
 .img.cover{object-fit:cover;height:360px}
 
 /********  SKILLS  *********/
@@ -160,24 +164,97 @@ p{margin:0 0 12px}
   .activity{grid-template-columns:1fr;padding:14px}
 }
 
-/* ----- تفاصيل قابلة للطي في Extracurricular ----- */
-.extra-info{margin:10px 0 0}
-.extra-info details{
-  border-radius:14px;background:#f6f9ff;padding:12px 14px;
-  box-shadow:0 8px 24px rgba(0,0,0,.05);
-  transition:box-shadow .2s ease,background .2s ease;
+/* ----- تفاصيل قابلة للطي ----- */
+.details-toggle{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.85rem 1.1rem;border:0;border-radius:12px;
+  background:#4461f2;color:#fff;font-weight:700;cursor:pointer;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+  transition:background .2s ease,transform .15s ease;
 }
-.extra-info details:hover{box-shadow:0 10px 32px rgba(0,0,0,.08);background:#f3f7ff}
-.extra-info summary{
-  cursor:pointer;font-weight:700;font-size:14px;color:#1a2740;
-  list-style:none;display:inline-flex;align-items:center;gap:8px;
+.details-toggle:hover{background:#2f47c2;transform:translateY(-1px)}
+.details-toggle .chev{display:inline-block;transition:transform .25s ease}
+.details-toggle[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.details-content{
+  display:grid;grid-template-rows:0fr;overflow:hidden;opacity:0;margin-top:0;
+  transition:grid-template-rows .35s ease,opacity .3s ease,margin .3s ease;
 }
-.extra-info summary::before{
-  content:"➤";display:inline-block;transform:rotate(90deg);
-  transition:transform .2s ease;opacity:.75;
+.details-content > *{min-height:0}
+.details-content.open{grid-template-rows:1fr;opacity:1;margin-top:12px}
+.details-content > *{
+  background:rgba(68,97,242,.06);
+  border-radius:12px;padding:12px 14px;
+  line-height:1.7;color:#203042;
 }
-.extra-info details[open] summary::before{transform:rotate(0deg)}
-.extra-info p{margin:10px 0 0;font-size:14px;line-height:1.65;color:#2d3b56}
+
+/********  PROJECTS *********/
+#projects.section{padding-top:clamp(64px,7vw,90px);padding-bottom:clamp(56px,6vw,80px)}
+#projects .section-title{
+  font-weight:800;font-size:clamp(28px,4.2vw,40px);line-height:1.15;letter-spacing:.2px;margin:0 0 22px;
+}
+.project-row{
+  display:grid;grid-template-columns:minmax(280px,1fr) 1fr;
+  gap:clamp(18px,3vw,36px);align-items:start;background:#f7f9fc;
+  border-radius:16px;padding:clamp(14px,2.4vw,22px);
+  box-shadow:0 6px 24px rgba(6,18,40,.06);margin-bottom:clamp(18px,4vw,28px);
+}
+.project-media img{
+  width:100%;height:clamp(220px,36vw,380px);border-radius:14px;object-fit:cover;
+}
+.project-media img.fit{
+  object-fit:contain;background:#fff;border:1px solid rgba(0,0,0,.06);
+  object-position:center;height:clamp(260px,38vw,420px);
+}
+.project-title{font-size:clamp(20px,3.2vw,28px);font-weight:800;margin:2px 0 6px;color:#0f2137}
+.project-meta{margin:0 0 12px;opacity:.75;font-size:clamp(13px,1.9vw,15px)}
+@media (max-width:900px){
+  .project-row{grid-template-columns:1fr}
+  .project-media img.fit{height:clamp(240px,55vw,420px)}
+}
+
+/********  Project inline toggle (مشاريع) *********/
+.btn-toggle{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:10px 14px;border-radius:10px;background:#2851f5;color:#fff;
+  font-weight:700;border:none;cursor:pointer;
+  transition:transform .12s ease,box-shadow .2s ease;
+  box-shadow:0 6px 18px rgba(40,81,245,.25);margin-bottom:10px;
+}
+.btn-toggle:hover{transform:translateY(-1px)}
+.btn-toggle .btn-dot{width:6px;height:6px;border-radius:50%;background:#fff;display:inline-block}
+.project-details{
+  display:none;margin-top:12px;padding:14px 16px;background:#eef3ff;border-radius:12px;color:#0f2137;
+  box-shadow:inset 0 0 0 1px rgba(40,81,245,.08);line-height:1.65;
+}
+.project-details.is-open{display:block}
+
+/********  COMPETITIONS (بطاقات صور بدون قصّ) *********/
+#competitions .section-title{margin-bottom:8px}
+.comp-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:14px;
+}
+.comp-card{
+  background:#fff;border:1px solid rgba(0,0,0,.06);
+  border-radius:16px;padding:10px;
+  box-shadow:0 8px 20px rgba(0,0,0,.06);
+}
+.comp-img{
+  width:100%;height:360px;object-fit:contain; /* بدون قص */
+  background:#fff;border-radius:12px;display:block;
+}
+@media (max-width:768px){
+  .comp-img{height:300px}
+}
+@media (max-width:560px){
+  .comp-grid{grid-template-columns:1fr 1fr}
+  .comp-img{height:220px}
+}
+@media (max-width:420px){
+  .comp-grid{grid-template-columns:1fr}
+  .comp-img{height:auto}
+}
 
 /********  CONTACT  *********/
 .contact{background:linear-gradient(180deg,#0b0f1a,#0f1422);color:#fff}
@@ -193,125 +270,35 @@ p{margin:0 0 12px}
 /********  FOOTER  *********/
 .footer{padding:18px 0;text-align:center;color:#7f93b6;background:#0b0f1a}
 
-/* روابط */
+/********  LINKS  *********/
 a{color:#205cc7} a:hover{color:#0d3f99}
-
-/********  PROJECTS — unified heading & spacing *********/
-#projects.section{padding-top:clamp(64px,7vw,90px);padding-bottom:clamp(56px,6vw,80px)}
-#projects .section-title{
-  font-weight:800;font-size:clamp(28px,4.2vw,40px);line-height:1.15;letter-spacing:.2px;margin:0 0 22px;
-}
-
-/********  PROJECTS layout *********/
-.project-row{
-  display:grid;
-  grid-template-columns:minmax(280px,1fr) 1fr;
-  gap:clamp(18px,3vw,36px);
-  align-items:start;
-  background:#f7f9fc;
-  border-radius:16px;
-  padding:clamp(14px,2.4vw,22px);
-  box-shadow:0 6px 24px rgba(6,18,40,.06);
-  margin-bottom:clamp(18px,4vw,28px);
-}
-.project-media img{
-  width:100%;
-  height:clamp(220px,36vw,380px);
-  border-radius:14px;
-  object-fit:cover;
-}
-/* لو الصورة class="fit" تظهر كاملة */
-.project-media img.fit{
-  object-fit:contain;background:#fff;border:1px solid rgba(0,0,0,.06);
-  object-position:center;height:clamp(260px,38vw,420px);
-}
-.project-title{font-size:clamp(20px,3.2vw,28px);font-weight:800;margin:2px 0 6px;color:#0f2137}
-.project-meta{margin:0 0 12px;opacity:.75;font-size:clamp(13px,1.9vw,15px)}
-
-@media (max-width:900px){
-  .project-row{grid-template-columns:1fr}
-  .project-media img.fit{height:clamp(240px,55vw,420px)}
-}
-
-/********  Show/Hide Details (مشتركة للمشاريع والأنشطة) *********/
-.details-toggle{
-  display:inline-flex;align-items:center;gap:.6rem;
-  padding:.85rem 1.1rem;border:0;border-radius:12px;
-  background:#4461f2;color:#fff;font-weight:700;cursor:pointer;
-  box-shadow:0 6px 18px rgba(0,0,0,.06);
-  transition:background .2s ease,transform .15s ease;
-}
-.details-toggle:hover{background:#2f47c2;transform:translateY(-1px)}
-.details-toggle .chev{display:inline-block;transition:transform .25s ease}
-.details-toggle[aria-expanded="true"] .chev{transform:rotate(180deg)}
-
-.details-content{
-  display:grid;grid-template-rows:0fr; /* مغلق */
-  overflow:hidden;opacity:0;margin-top:0;
-  transition:grid-template-rows .35s ease,opacity .3s ease,margin .3s ease;
-}
-.details-content > *{min-height:0}
-.details-content.open{grid-template-rows:1fr;opacity:1;margin-top:12px}
-.details-content > *{
-  background:rgba(68,97,242,.06);
-  border-radius:12px;padding:12px 14px;
-  line-height:1.7;color:#203042;
-}
-
-/********  Project inline toggle (btn-toggle + panel) *********/
-.btn-toggle{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:10px 14px;border-radius:10px;background:#2851f5;color:#fff;
-  font-weight:700;border:none;cursor:pointer;
-  transition:transform .12s ease,box-shadow .2s ease;
-  box-shadow:0 6px 18px rgba(40,81,245,.25);
-  margin-bottom:10px;
-}
-.btn-toggle:hover{transform:translateY(-1px)}
-.btn-toggle .btn-dot{width:6px;height:6px;border-radius:50%;background:#fff;display:inline-block}
-.project-details{
-  display:none;margin-top:12px;padding:14px 16px;background:#eef3ff;border-radius:12px;color:#0f2137;
-  box-shadow:inset 0 0 0 1px rgba(40,81,245,.08);line-height:1.65;
-}
-.project-details.is-open{display:block}
 
 /********  RTL SUPPORT  *********/
 html[dir="rtl"] body{font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
 html[dir="rtl"] .nav .nav-menu{direction:rtl}
 html[dir="rtl"] .nav .nav-menu a{margin:0 0 0 18px}
 html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] h4,
-html[dir="rtl"] p,html[dir="rtl"] .subtitle,html[dir="rtl"] .project-meta{ text-align:right }
+html[dir="rtl"] p,html[dir="rtl"] .subtitle,html[dir="rtl"] .project-meta{text-align:right}
 html[dir="rtl"] .brand{margin-left:12px;margin-right:0}
-html[dir="rtl"] .hero .btn i{ transform: scaleX(-1); }  /* سهم الزر يتقلب */
-/* === Fix: center hero heading in Arabic & English === */
-.hero{
-  display: flex;
-  flex-direction: column;
-  align-items: center;       /* يضمن أن العنوان في النص */
-}
+html[dir="rtl"] .hero .btn i{transform:scaleX(-1)}  /* عكس السهم في RTL */
 
-.hero h1{
-  text-align: center;
-  margin-inline: auto;       /* يضمن التوسيط حتى مع RTL */
+/********  RESPONSIVE TYPOGRAPHY  *********/
+@media (max-width:992px){
+  h1{font-size:42px}
+  h2{font-size:30px}
 }
-
-.hero .subtitle,
-.hero .location{
-  text-align: center;
-  margin-inline: auto;
+@media (max-width:768px){
+  h1{font-size:36px}
+  h2{font-size:28px}
+  .section{padding:56px 0}
 }
-
-/* توسيط الزر والسوشيال */
-.hero .cta{ display:flex; justify-content:center; }
-.hero .socials{ justify-content:center; }
-/* ===== Competitions gallery (no crop) ===== */
-.gallery-competitions{
-  display:grid;
-  gap:16px;
-  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+@media (max-width:560px){
+  h1{font-size:32px}
+  h2{font-size:26px}
+  .container{padding:0 14px}
 }
-.img.fullcontain{
-  object-fit:contain;
-  height:auto;           /* بدون قصّ */
-  background:#fff;
+@media (max-width:420px){
+  h1{font-size:28px}
+  h2{font-size:24px}
+  .container{padding:0 12px}
 }
