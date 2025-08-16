@@ -4,8 +4,13 @@ AOS.init({ duration: 850, once: true });
 // ================== Mobile nav toggle ==================
 const btnBurger = document.querySelector('.nav-toggle');
 const menu = document.querySelector('.nav-menu');
+
 btnBurger?.addEventListener('click', () => {
   menu.classList.toggle('show');
+});
+// اقفل المينيو بعد الضغط على أي لينك
+menu?.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => menu.classList.remove('show'));
 });
 
 // ================== Year in footer ==================
@@ -39,7 +44,6 @@ document.querySelectorAll('.details-toggle').forEach(btn => {
   });
 });
 
-
 // =====================================================
 // =============== Collapsible (Projects) ===============
 // =====================================================
@@ -62,32 +66,9 @@ document.querySelectorAll('.js-toggle').forEach(btn => {
 
 
 // =====================================================
-// ===== Optional: simple toggle (ID-based) support =====
-// ===== for Competitions (detailsBtn/competitions-...)==
-// =====================================================
-(function wireSimpleCompetitionsToggle(){
-  const btn = document.getElementById('detailsBtn');
-  const box = document.getElementById('competitions-gallery');
-  if (!btn || !box) return;
-
-  btn.addEventListener('click', () => {
-    const isHidden = box.style.display === 'none' || getComputedStyle(box).display === 'none';
-    box.style.display = isHidden ? 'block' : 'none';
-
-    const isAr = document.documentElement.lang === 'ar';
-    btn.textContent = isHidden
-      ? (isAr ? 'إخفاء التفاصيل' : 'Hide details')
-      : (isAr ? 'عرض التفاصيل' : 'Show details');
-  });
-})();
-
-
-// =====================================================
 // ===================== i18n Toggle ====================
 // =====================================================
-// ملاحظات:
-// - الترجمات تطبّق بس على العناصر اللي عليها data-i18n.
-// - لو مفتاح ناقص، النص يفضل زي ما هو.
+// الترجمات تطبّق بس على العناصر اللي عليها data-i18n.
 const dict = {
   en: {
     brand: "Nouran Ashour",
@@ -95,7 +76,7 @@ const dict = {
     nav_home: "Home", nav_about: "About", nav_skills: "Skills", nav_projects: "Projects",
     nav_certs: "Certifications", nav_extra: "Extracurricular", nav_writing: "Writing",
     nav_visuals: "Visual Creations", nav_students: "Student Projects", nav_inspiring: "Inspiring Gen",
-    nav_competitions: "Competitions",
+    nav_competitions: "Competitions", nav_cv: "My CV",
     nav_contact: "Contact",
 
     // Hero
@@ -169,7 +150,7 @@ I bring both strategic vision and creative execution to every project.`,
     students_title: "Student Projects Under My Supervision",
     inspire_title: "Inspiring the Next Generation of Marketers",
 
-    // Competitions (new)
+    // Competitions
     competitions_title: "Competitions",
     competitions_desc:
       "Proud to have led my team to victory at the Young Leaders Marathon, winning first place at the national level across all Egyptian universities. Organized by the John D. Gerhart Center for Philanthropy, Civic Engagement, and Responsible Business at The American University in Cairo, and sponsored by Americana. This achievement, with a prize of 21,000 EGP, reflects our teamwork, leadership, and dedication to making a positive impact in our community.",
@@ -184,7 +165,7 @@ I bring both strategic vision and creative execution to every project.`,
     nav_home: "الرئيسية", nav_about: "نبذة", nav_skills: "المهارات", nav_projects: "المشاريع",
     nav_certs: "الشهادات", nav_extra: "الأنشطة الإضافية", nav_writing: "الكتابة",
     nav_visuals: "إبداعات بصرية", nav_students: "مشاريع الطلاب", nav_inspiring: "إلهام الجيل القادم",
-    nav_competitions: "المسابقات",
+    nav_competitions: "المسابقات", nav_cv: "السيرة الذاتية",
     nav_contact: "تواصل",
 
     // Hero
@@ -258,7 +239,7 @@ I bring both strategic vision and creative execution to every project.`,
     students_title: "مشاريع الطلاب تحت إشرافي",
     inspire_title: "إلهام الجيل القادم من المسوّقين",
 
-    // Competitions (new)
+    // Competitions
     competitions_title: "المسابقات",
     competitions_desc:
       "فخور بقيادة فريقي للفوز في ماراثون القادة الشباب، والحصول على المركز الأول على مستوى الجمهورية بين جميع الجامعات المصرية. نظمه مركز جون د. جيرهارت للعمل الخيري والمشاركة المدنية والمسؤولية المجتمعية بالجامعة الأمريكية بالقاهرة، وبرعاية أمريكانا. هذا الإنجاز، بجائزة قدرها 21,000 جنيه مصري، يعكس روح الفريق والقيادة والالتزام بإحداث أثر إيجابي في مجتمعنا.",
@@ -269,11 +250,13 @@ I bring both strategic vision and creative execution to every project.`,
 };
 
 // مفاتيح زرار الإظهار/الإخفاء
-const getShowLabel = () => (document.documentElement.lang === 'ar' ? dict.ar.btn_show : dict.en.btn_show);
-const getHideLabel = () => (document.documentElement.lang === 'ar' ? dict.ar.btn_hide : dict.en.btn_hide);
+const getShowLabel = () =>
+  (document.documentElement.lang === 'ar' ? dict.ar.btn_show : dict.en.btn_show);
+const getHideLabel = () =>
+  (document.documentElement.lang === 'ar' ? dict.ar.btn_hide : dict.en.btn_hide);
 
 // تطبيق اللغة على العناصر ذات data-i18n
-function applyLanguage(lang){
+function applyLanguage(lang) {
   const map = dict[lang] || dict.en;
 
   // بدّل اتجاه الصفحة ولغة الـhtml
@@ -286,7 +269,7 @@ function applyLanguage(lang){
     if (key && map[key] != null) el.textContent = map[key];
   });
 
-  // زِر اللغة نفسه
+  // زر اللغة نفسه
   const tgl = document.getElementById('langToggle');
   if (tgl) {
     tgl.textContent = lang === 'ar' ? 'English' : 'العربية';
@@ -295,36 +278,30 @@ function applyLanguage(lang){
 
   // تحديث أزرار التفاصيل المفتوحة/المغلقة
   // Extracurricular (.details-toggle)
-  document.querySelectorAll('.details-toggle').forEach(btn=>{
+  document.querySelectorAll('.details-toggle').forEach(btn => {
     const id = btn.getAttribute('data-target');
     const panel = document.querySelector(id);
     if (!panel) return;
-    const expanded = btn.getAttribute('aria-expanded') === 'true' || (panel.classList.contains('open') && !panel.hasAttribute('hidden'));
+    const expanded =
+      btn.getAttribute('aria-expanded') === 'true' ||
+      (panel.classList.contains('open') && !panel.hasAttribute('hidden'));
     const label = expanded ? getHideLabel() : getShowLabel();
     btn.innerHTML = `<span class="chev">▾</span> ${label}`;
   });
 
   // Projects (.js-toggle داخلها .btn-text)
-  document.querySelectorAll('.js-toggle .btn-text').forEach(span=>{
+  document.querySelectorAll('.js-toggle .btn-text').forEach(span => {
     const boxId = span.closest('.js-toggle')?.getAttribute('data-target');
     const box   = boxId ? document.querySelector(boxId) : null;
     const open  = !!box && box.classList.contains('is-open');
     span.textContent = open ? getHideLabel() : getShowLabel();
   });
 
-  // Optional IDs (competitions gallery)
-  const dBtn = document.getElementById('detailsBtn');
-  const dBox = document.getElementById('competitions-gallery');
-  if (dBtn && dBox) {
-    const visible = getComputedStyle(dBox).display !== 'none';
-    dBtn.textContent = visible ? getHideLabel() : getShowLabel();
-  }
-
   localStorage.setItem('lang', lang);
 }
 
 // زر التبديل (لو موجود)
-document.getElementById('langToggle')?.addEventListener('click', ()=>{
+document.getElementById('langToggle')?.addEventListener('click', () => {
   const current = document.documentElement.lang === 'ar' ? 'ar' : 'en';
   applyLanguage(current === 'en' ? 'ar' : 'en');
 });
