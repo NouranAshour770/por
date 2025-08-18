@@ -159,7 +159,7 @@ I bring both strategic vision and creative execution to every project.`,
     contact_title: "Contact",
     nav_prologo: "Professional Logo",
 prologo_title: "Professional Logo",
-prologo_desc: "My personal logo is more than just a design — it’s my mark as a marketer and content creator. The crown represents leadership, the circle stands for consistency and value, and the black & gold reflect elegance and professionalism.✨"
+prologo_desc: "My personal logo is more than just a design, it’s my mark as a marketer and content creator. The crown represents leadership, the circle stands for consistency and value, and the black & gold reflect elegance and professionalism.✨"
 ,
 toggle_btn: "Show Details",
 
@@ -254,7 +254,7 @@ toggle_btn: "Show Details",
     contact_title: "تواصل",
     nav_prologo: "الشعار الاحترافي",
 prologo_title: "الشعار الاحترافي",
-prologo_desc: "شعاري الشخصي مش مجرد تصميم — هو بصمتي كمسوّقة وصانعة محتوى. التاج بيرمز للقيادة، والدائرة للاستمرارية والقيمة، والأسود والذهبي للأناقة والاحترافية.✨",
+prologo_desc: "شعاري الشخصي مش مجرد تصميم, هو بصمتي كمسوّقة وصانعة محتوى. التاج بيرمز للقيادة، والدائرة للاستمرارية والقيمة، والأسود والذهبي للأناقة والاحترافية.✨",
 toggle_btn: "عرض التفاصيل",
   }
 };
