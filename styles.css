@@ -350,3 +350,26 @@ html[dir="rtl"] .hero .btn i{transform:scaleX(-1)}  /* عكس السهم في RT
 .competitions-section .details-toggle{
   margin-top: 6px;
 }
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+}
+
+.about-logo {
+  width: 120px; /* حجم واضح */
+  height: auto;
+  position: absolute;
+  top: 10px;
+  /* الاتجاه الافتراضي للـ LTR */
+  left: 10px;
+  z-index: 5;
+}
+
+/* لو الموقع RTL يتحرك يمين */
+html[dir="rtl"] .about-logo {
+  left: auto;
+  right: 10px;
+}
