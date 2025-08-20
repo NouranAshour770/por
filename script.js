@@ -81,7 +81,7 @@ const dict = {
 
     // Hero
     hero_name: "Nouran Ashour",
-    hero_sub: "Marketing Specialist | MBA Holder (AAST) | Digital Marketing Diploma Holder (AUC) | Content Creator | Teaching Assistant (ERU)",
+    hero_sub: " Marketing Consultant | Marketing Specialist | MBA Holder (AAST) | Digital Marketing Diploma Holder (AUC) | Content Creator | Teaching Assistant (ERU)",
     hero_loc: "Cairo, Egypt",
     hero_cta: "See My Work",
 
@@ -176,7 +176,7 @@ toggle_btn: "Show Details",
 
     // Hero
     hero_name: "نوران عاشور",
-    hero_sub: "أخصائية تسويق | حاصلة على ماجستير إدارة أعمال (AAST) | دبلومة التسويق الرقمي (AUC) | صانعة محتوى | مُعيدة (ERU)",
+    hero_sub: "مستشار تسويق | أخصائية تسويق |  حاصلة على ماجستير إدارة أعمال (AAST)  | دبلومة التسويق الرقمي (AUC) | صانعة محتوى | مُعيدة (ERU) ",
     hero_loc: "القاهرة، مصر",
     hero_cta: "شوف أعمالي",
 
