@@ -524,3 +524,74 @@ html[dir="rtl"] .hero .btn i{transform:scaleX(-1)}  /* عكس السهم في RT
     max-height: 68vh;
   }
 }
+/* ===== Content section ===== */
+.content-section .section-title{
+  font-weight:800;
+  font-size:clamp(28px,4.2vw,40px);
+  line-height:1.15;
+  margin:0 0 10px;
+  color:#0f1b2d;
+  text-align: left;
+}
+html[dir="rtl"] .content-section .section-title{ text-align: right; }
+
+.content-top{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:12px;
+}
+.content-desc{
+  margin:0;
+  color:#2a3a55;
+  opacity:.9;
+  flex:1 1 380px;
+}
+
+/* show/hide description (re-use of details styles) */
+.content-section .details-toggle{ margin-top:4px; }
+
+/* grid */
+.content-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+  margin-top:10px;
+}
+.content-card{
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 10px 24px rgba(6,18,40,.06);
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,.06);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.content-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 28px rgba(6,18,40,.10);
+}
+.content-img{
+  width:100%;
+  display:block;
+  aspect-ratio: 1 / 1;       /* يحافظ على مربع Responsive */
+  object-fit:cover;
+}
+.content-meta{
+  display:flex;
+  justify-content:center;
+  padding:12px;
+}
+
+/* زرار خارجي */
+.btn-outline{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:10px 14px;border-radius:12px;font-weight:700;
+  border:1.5px solid #2851f5;color:#2851f5;text-decoration:none;
+  transition:background .15s ease, color .15s ease, transform .12s ease;
+}
+.btn-outline:hover{ background:#2851f5;color:#fff; transform:translateY(-1px); }
+
+/* اتساق العناوين يمين/شمال حسب اللغة (لو عندك قواعد عامة كفاية تجاهل هذه) */
+html[dir="rtl"] #content .section-title,
+html[dir="rtl"] #content .content-desc { text-align:right; }

@@ -162,6 +162,11 @@ prologo_title: "Professional Logo",
 prologo_desc: "My personal logo is more than just a design, it’s my mark as a marketer and content creator. The crown represents leadership, the circle stands for consistency and value, and the black & gold reflect elegance and professionalism.✨"
 ,
 toggle_btn: "Show Details",
+// داخل dict.en
+nav_content: "Content",
+content_title: "Professional Content",
+content_desc: "Snackable carousels blending marketing lessons and storytelling. Tap any card to open the post.",
+btn_view_post: "View post",
 
   },
 
@@ -256,6 +261,11 @@ toggle_btn: "Show Details",
 prologo_title: "الشعار الاحترافي",
 prologo_desc: "شعاري الشخصي مش مجرد تصميم, هو بصمتي كمسوّقة وصانعة محتوى. التاج بيرمز للقيادة، والدائرة للاستمرارية والقيمة، والأسود والذهبي للأناقة والاحترافية.✨",
 toggle_btn: "عرض التفاصيل",
+// داخل dict.ar
+nav_content: "المحتوى",
+content_title: "المحتوى الاحترافي",
+content_desc: "سلايدات خفيفة تمزج دروس التسويق بسرد قصصي. اضغط على أي كارت ليفتح البوست.",
+btn_view_post: "عرض البوست",
   }
 };
 
@@ -337,3 +347,22 @@ if (toggleBtn && prologoDesc) {
     }
   });
 }
+// Toggle for Content section description
+document.querySelector('.js-content-desc-toggle')?.addEventListener('click', (e)=>{
+  const btn = e.currentTarget;
+  const id = btn.getAttribute('data-target');
+  const box = document.querySelector(id);
+  if (!box) return;
+
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+
+  if (box.hasAttribute('hidden')) box.removeAttribute('hidden');
+  box.classList.toggle('open', !expanded);
+
+  const isAr = document.documentElement.lang === 'ar';
+  const label = !expanded ? (isAr ? 'إخفاء التفاصيل' : 'Hide details')
+                          : (isAr ? 'عرض التفاصيل' : 'Show details');
+  btn.innerHTML = `<span class="chev">▾</span> ${label}`;
+});
+
