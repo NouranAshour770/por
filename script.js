@@ -365,4 +365,17 @@ document.querySelector('.js-content-desc-toggle')?.addEventListener('click', (e)
                           : (isAr ? 'عرض التفاصيل' : 'Show details');
   btn.innerHTML = `<span class="chev">▾</span> ${label}`;
 });
+// ضبط --nav-h حسب ارتفاع الهيدر الحقيقي
+const navEl = document.querySelector('.nav');
+if (navEl) {
+  const setNavH = () =>
+    navEl.style.setProperty('--nav-h', navEl.getBoundingClientRect().height + 'px');
+  setNavH();
+  window.addEventListener('resize', setNavH);
+}
+
+// اقفل القائمة بعد الضغط على أي لينك (لو عندك ده خلاص سيبه)
+document.querySelectorAll('.nav-menu a').forEach(a => {
+  a.addEventListener('click', () => document.querySelector('.nav-menu')?.classList.remove('show'));
+});
 

@@ -27,13 +27,58 @@ h4{font-size:20px}
 p{margin:0 0 12px}
 
 /********  NAVBAR  *********/
+/* ارتفاع افتراضي للنافبار */
+.nav { --nav-h: 64px; }
+
+/* Desktop navbar كما هو */
 .nav{
-  position:sticky;top:0;z-index:999;
+  position:sticky; top:0; z-index:999;
   background:linear-gradient(180deg,#0b0f1a 0%,#0b0f1a 70%,rgba(11,15,26,.85) 100%);
   color:var(--text);
-  display:flex;align-items:center;gap:16px;
+  display:flex; align-items:center; gap:16px;
   padding:12px 18px;
 }
+
+.nav .nav-menu{
+  margin-left:auto; display:flex; gap:16px; flex-wrap:wrap;
+}
+.nav .nav-menu a{
+  color:#bcd1f1; text-decoration:none; padding:8px 10px; border-radius:10px;
+}
+.nav .nav-menu a:hover{ background:rgba(255,255,255,.08); color:#fff }
+
+/* ===== Mobile menu ===== */
+@media (max-width:900px){
+  .nav { --nav-h: 64px; } /* عدّلها لو ارتفاع الهيدر مختلف */
+
+  .nav .nav-toggle{ display:block; margin-left:8px; }
+  /* ناخد القائمة Full-screen تحت الهيدر مباشرة */
+  .nav .nav-menu{
+    position: fixed;
+    top: var(--nav-h);
+    left: 0; right: 0; bottom: 0;
+    display: none; /* هتتفتح بـ .show */
+    flex-direction: column;
+    gap: 18px;
+    padding: 20px 22px 28px;
+    background: linear-gradient(180deg, #0b0f1a 0%, #0c1120 100%);
+    border-top: 1px solid rgba(255,255,255,.08);
+    overflow-y: auto;               /* مهم جداً */
+    overscroll-behavior: contain;   /* يمنع سحب الصفحة ورا القائمة */
+    z-index: 998;
+  }
+  .nav .nav-menu.show{ display:flex; }
+
+  .nav .nav-menu a{
+    font-size: 20px;
+    padding: 12px 8px;
+    border-radius: 12px;
+  }
+
+  /* لو RTL خلّي النص يمين */
+  html[dir="rtl"] .nav .nav-menu { text-align: right; }
+}
+
 .nav .brand{color:#fff;text-decoration:none;font-weight:800;letter-spacing:.4px}
 .nav .nav-toggle{margin-left:auto;background:none;border:0;color:#fff;font-size:22px;display:none}
 .nav .nav-menu{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
